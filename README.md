@@ -75,6 +75,18 @@ graph TD
 - **Monitoring**: Built-in health checks and access logs; extend with Prometheus exporter
 - **Deployment flow**: `docker compose up`; k8s with ConfigMap for cfg files
 
+## Key Engineering Decisions
+
+- Roundrobin + explicit `check` in haproxy.cfg backend for automatic failover on unhealthy RPC (rpc1:8545, rpc2:8546).
+- Dual proxy (HAProxy for L4 + NGINX for L7) to cover both simple balancing and potential caching needs.
+- Configs mounted read-only as volumes so changes take effect without image rebuild (haproxy.cfg, nginx.conf, compose).
+
+## Production Considerations
+
+- Upstream RPC addresses in haproxy.cfg/nginx.conf must be replaced with real node endpoints (internal or public).
+- Add rate limiting and auth in production cfg to protect backends.
+- Run behind ingress with TLS termination for public RPC exposure.
+
 ## Technology Stack
 
 - **Load Balancer**: HAProxy (frontend, backend, balance, checks)
@@ -162,7 +174,7 @@ See haproxy.cfg and nginx.conf for upstream customization. k8s patterns use Conf
 - Kubernetes production manifests with ConfigMap + Ingress
 - Failover benchmarking harness
 
-## Business Value
+## Business Impact
 
 Improves RPC endpoint availability through automatic failover and health-based routing. Reduces client impact from node restarts or regional outages. Standardizes HA patterns for Ethereum infrastructure teams. Enables faster recovery and better uptime for dependent services (validators, dapps).
 
