@@ -2,12 +2,10 @@
 
 🚧 Status: In Progress
 
-This repository is currently under active development and should be considered a reference implementation and learning project until a stable release is published.
+This repository is currently under active development.
+It represents a reference implementation and learning project.
+Features and architecture may change before stable release.
 
-![Status](https://img.shields.io/badge/status-in--progress-orange)
-![Docker](https://img.shields.io/badge/docker-ready-blue)
-![Kubernetes](https://img.shields.io/badge/k8s-ready-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ## Features
 
@@ -66,3 +64,24 @@ See CONTRIBUTING.md
 ## License
 
 MIT License - see LICENSE file.
+
+## Problem
+Blockchain infrastructure requires production patterns for deployment, monitoring, routing and secrets.
+
+## Components
+- Docker compose for local demo
+- Kubernetes manifests (StatefulSet, Service, ConfigMap, Secret)
+- Observability (Prometheus, Grafana, Loki, Tempo)
+- GitOps ready
+
+## Monitoring
+Prometheus metrics, Grafana dashboards, logs and traces via Loki/Tempo.
+
+## Security
+No real credentials. Secrets use CHANGEME or valueFrom. RBAC, no keys in images.
+
+## CI/CD
+.github/workflows/ci.yml: validate (compose), build (docker).
+
+## Troubleshooting
+See docs/troubleshooting.md
