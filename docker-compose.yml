@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  haproxy:
+    image: haproxy:2.8
+    ports: ["80:80"]
+    volumes: ["./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg"]
+  nginx:
+    image: nginx:alpine
+    ports: ["8080:80"]
+    volumes: ["./nginx.conf:/etc/nginx/nginx.conf"]
