@@ -1,6 +1,10 @@
 # rpc-routing-toolkit
 
+<p align="center">
+
 **Production-inspired High Availability RPC Routing Toolkit demonstrating HAProxy, NGINX, health checks, load balancing, and failover patterns for Ethereum RPC endpoints.**
+
+</p>
 
 ![HAProxy](https://img.shields.io/badge/HAProxy-0099CC?logo=haproxy&logoColor=white)
 ![NGINX](https://img.shields.io/badge/NGINX-009639?logo=nginx&logoColor=white)
@@ -30,7 +34,7 @@ Reference HAProxy and NGINX configurations for resilient RPC access: round-robin
 - [Operational Lessons Learned](#operational-lessons-learned)
 - [Screenshots](#screenshots)
 - [Roadmap](#roadmap)
-- [Business Value](#business-value)
+- [Business Impact](#business-impact)
 - [Resume Relevance](#resume-relevance)
 - [License](#license)
 
